@@ -3,6 +3,8 @@ config/private.yml
 releases/*.tgz
 dev_releases
 .blobs
+.project
+proxy-manifest.yml
 blobs
 .dev_builds
 .idea
