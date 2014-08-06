@@ -1,0 +1,7 @@
+---
+name: squid
+
+dependencies:
+
+files:
+- squid/squid-3.4.6.tar.gz

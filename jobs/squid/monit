@@ -1,0 +1,8 @@
+check process squid
+  with pidfile /var/vcap/sys/run/squid/squid.pid
+  start program "/var/vcap/jobs/squid/bin/squid_ctl start"
+  stop program "/var/vcap/jobs/squid/bin/squid_ctl stop"
+  group vcap
+
+
+

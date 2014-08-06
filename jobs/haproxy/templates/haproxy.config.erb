@@ -1,0 +1,44 @@
+global
+    log 127.0.0.1   local2
+    daemon
+    user vcap
+    group vcap
+    maxconn 64000
+    spread-checks 4
+
+defaults
+    log global
+    timeout connect 30000ms
+    timeout client <%= p("request_timeout_in_seconds").to_i * 1000 %>ms
+    timeout server <%= p("request_timeout_in_seconds").to_i * 1000 %>ms
+
+frontend proxy_http *:3128
+        option forwardfor except 127.0.0.1
+        option httpclose
+        default_backend         proxy_http
+        
+backend proxy_http
+    balance roundrobin
+    retries                 10
+    <% size = p("squid.servers.z1").size %>
+
+    <% p("squid.servers.z1").each_with_index do |ip, index| %>
+        server node<%= index %> <%= ip %>:3128 check inter 1000
+    <% end %>
+
+listen stats 127.0.0.1:8000
+    mode http
+    log global
+
+    maxconn 10
+
+    clitimeout 100s
+    srvtimeout 100s
+    contimeout 100s
+    timeout queue 100s
+
+    stats enable
+    stats hide-version
+    stats refresh 30s
+    stats show-node
+    stats uri  /haproxyadmin

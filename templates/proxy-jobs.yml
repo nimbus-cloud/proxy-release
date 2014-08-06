@@ -1,0 +1,40 @@
+networks: (( merge ))
+
+meta:
+  environment: ~
+
+  release:
+    name: proxy
+
+  networks:
+    z1:
+      apps: cf5
+
+jobs:
+  - name: squid_z1
+    release: (( meta.release.name ))
+    template: squid
+    instances: 2
+    resource_pool: medium_z1
+    default_networks:
+      - name: cf5
+        static_ips: ~
+    networks: (( merge || default_networks ))
+    properties:
+      networks: (( meta.networks.z1 ))
+  - name: haproxy
+    release: (( meta.release.name ))
+    template: haproxy
+    instances: 1
+    resource_pool: medium_z1
+    default_networks:
+      - name: cf5
+        static_ips: ~
+    networks: (( merge || default_networks ))
+    properties:
+      networks: (( meta.networks.z1 ))
+
+
+
+properties:
+  

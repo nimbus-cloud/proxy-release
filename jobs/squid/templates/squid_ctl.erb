@@ -1,0 +1,51 @@
+#!/bin/bash
+
+RUN_DIR=/var/vcap/sys/run/squid
+LOG_DIR=/var/vcap/sys/log/squid
+PIDFILE=$RUN_DIR/squid.pid
+SQUID_PACKAGE_DIR=/var/vcap/packages/squid
+SQUID_JOB_DIR=/var/vcap/jobs/squid
+CONFIG_DIR=$SQUID_JOB_DIR/config
+
+source /var/vcap/packages/common/utils.sh
+
+case $1 in
+
+  start)
+
+	pid_guard $PIDFILE "squid"
+
+    mkdir -p $RUN_DIR
+    mkdir -p $LOG_DIR
+    mkdir -p /var/vcap/sys/squid-cache/squid
+
+    chown -R vcap:vcap $RUN_DIR
+    chown -R vcap:vcap $LOG_DIR
+    chown -R vcap:vcap /var/vcap/sys/squid-cache
+
+    if [[ ! -d /var/vcap/sys/squid-cache/squid/00 ]]; then
+      chpst -u vcap:vcap /var/vcap/packages/squid/sbin/squid \
+         -f $SQUID_JOB_DIR/config/squid.conf \
+         -z \
+	      >> $LOG_DIR/squid.stdout.log \
+	      2>> $LOG_DIR/squid.stderr.log
+    fi
+
+    exec chpst -u vcap:vcap /var/vcap/packages/squid/sbin/squid \
+         -f $SQUID_JOB_DIR/config/squid.conf \
+         $REBUILD_CACHE \
+	      >> $LOG_DIR/squid.stdout.log \
+	      2>> $LOG_DIR/squid.stderr.log
+    ;;
+
+  stop)
+    #force kill immediately; drain script should have already run
+    kill_and_wait $PIDFILE 0 1
+
+    ;;
+
+  *)
+    echo "Usage: squid_ctl {start|stop}"
+
+    ;;
+esac

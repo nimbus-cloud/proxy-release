@@ -1,0 +1,9 @@
+---
+name: proxy-warden
+director_uuid: PLACEHOLDER-DIRECTOR-UUID
+releases:
+  - name: proxy
+    version: latest
+properties:
+  loggregator_endpoint:
+    shared_secret: PLACEHOLDER-LOGGREGATOR-SECRET

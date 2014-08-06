@@ -1,0 +1,30 @@
+#!/bin/bash
+
+BOSH_STATUS=$(bosh status)
+EXPECTED_DIRECTOR_NAME="Bosh Lite Director"
+DIRECTOR_UUID=$(echo "$BOSH_STATUS" | grep UUID | awk '{print $2}')
+PROXY_HOME=$(dirname $0)
+
+if [[ "$(echo "$BOSH_STATUS" | grep Name)" != *"$EXPECTED_DIRECTOR_NAME"* ]]; then
+  echo "Can only target $EXPECTED_DIRECTOR_NAME. Please use 'bosh target' before running this script."
+  exit 1
+fi
+
+temp_dir=${TMPDIR:-${PROXY_HOME}/tmp}/boshlite-$$.tmp
+mkdir -p $temp_dir
+
+cp templates/proxy-stub-spiff.yml $temp_dir/proxy-stub-with-uuid.yml
+
+echo $DIRECTOR_UUID
+perl -pi -e "s/PLACEHOLDER-DIRECTOR-UUID/$DIRECTOR_UUID/g" $temp_dir/proxy-stub-with-uuid.yml
+
+$PROXY_HOME/generate_deployment_manifest \
+                                              warden \
+                                              $temp_dir/proxy-stub-with-uuid.yml \
+                                              $* > $PROXY_HOME/proxy-manifest.yml
+
+rm -f $temp_dir/*
+rmdir $temp_dir
+
+bosh deployment $PROXY_HOME/proxy-manifest.yml
+bosh status

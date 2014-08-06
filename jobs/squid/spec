@@ -1,0 +1,10 @@
+---
+name: squid
+templates:
+  squid_ctl.erb: bin/squid_ctl
+  squid.conf.erb: config/squid.conf
+
+packages:
+  - squid
+  - common
+
