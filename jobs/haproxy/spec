@@ -1,11 +1,12 @@
 ---
 name: haproxy
+templates:
+  haproxy.config.erb: config/haproxy.config
+  haproxy_ctl: bin/haproxy_ctl
+
 packages:
 - haproxy
-
-templates:
-  haproxy.config.erb:        config/haproxy.config
-  haproxy_ctl:               bin/haproxy_ctl
+  
 properties:
   request_timeout_in_seconds:
     default: 300

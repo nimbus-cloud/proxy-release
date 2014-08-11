@@ -22,6 +22,15 @@ case $1 in
     chown -R vcap:vcap $RUN_DIR
     chown -R vcap:vcap $LOG_DIR
     chown -R vcap:vcap /var/vcap/sys/squid-cache
+    
+    mkdir -p /var/vcap/data/squid/conf.d
+    touch /var/vcap/data/squid/htpasswd
+    chown -R vcap:vcap /var/vcap/data/squid
+
+    SUDOCHECK=`cat /etc/sudoers | grep -c "vcap ALL = NOPASSWD: /var/vcap/jobs/squid/bin/squid_reload"`
+	if [ "${SUDOCHECK}" == "0" ] ; then
+		echo "vcap ALL = NOPASSWD: /var/vcap/jobs/squid/bin/squid_reload" >> /etc/sudoers
+	fi
 
     if [[ ! -d /var/vcap/sys/squid-cache/squid/00 ]]; then
       chpst -u vcap:vcap /var/vcap/packages/squid/sbin/squid \

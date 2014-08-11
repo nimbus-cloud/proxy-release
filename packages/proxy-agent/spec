@@ -1,0 +1,9 @@
+---
+name: proxy-agent
+dependencies:
+- ruby
+files:
+- proxy-agent/Gemfile
+- proxy-agent/Gemfile.lock
+- proxy-agent/config.ru
+- proxy-agent/{app,config,vendor}/**/*

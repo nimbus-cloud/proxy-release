@@ -2,9 +2,14 @@
 name: squid
 templates:
   squid_ctl.erb: bin/squid_ctl
+  squid_reload.erb: bin/squid_reload
   squid.conf.erb: config/squid.conf
 
 packages:
   - squid
   - common
 
+properties:
+  squid.fake_property:
+    default:
+    description:

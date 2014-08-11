@@ -1,0 +1,5 @@
+check process proxy-agent
+  with pidfile /var/vcap/sys/run/proxy-agent/proxy-agent.pid
+  start program "/var/vcap/jobs/proxy-agent/bin/proxy-agent_ctl start"
+  stop program "/var/vcap/jobs/proxy-agent/bin/proxy-agent_ctl stop" with timeout 45 seconds
+  group vcap

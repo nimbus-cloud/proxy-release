@@ -1,0 +1,22 @@
+---
+name: proxy-agent
+templates:
+  settings.yml.erb: config/settings.yml
+  proxy-agent_ctl.erb: bin/proxy-agent_ctl
+
+packages:
+- common
+- proxy-agent
+- ruby
+
+properties:
+  proxy_agent.broker_end_point:
+    description: "cf-proxy-broker endpoint"
+    default: "http://cf-proxy-broker.10.244.0.34.xip.io"
+  proxy_agent.broker_username:
+    description: "cf-proxy-broker username"
+    default: "admin"
+  proxy_agent.broker_password:
+    description: "cf-proxy-broker password"
+    default: "password"
+    

@@ -13,7 +13,11 @@ meta:
 jobs:
   - name: squid_z1
     release: (( meta.release.name ))
-    template: squid
+    templates:
+      - name: squid
+        release: proxy
+      - name: proxy-agent
+        release: proxy
     instances: 2
     resource_pool: medium_z1
     default_networks:

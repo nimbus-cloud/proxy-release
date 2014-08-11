@@ -1,0 +1,53 @@
+#!/bin/bash -e
+
+export PATH=/var/vcap/packages/ruby/bin:$PATH
+RUN_DIR=/var/vcap/sys/run/proxy-agent
+LOG_DIR=/var/vcap/sys/log/proxy-agent
+PIDFILE=$RUN_DIR/proxy-agent.pid
+JOB_DIR=/var/vcap/jobs/proxy-agent
+DATA_DIR=/var/vcap/data/proxy-agent
+
+export TMPDIR=/var/vcap/data/proxy-agent/tmp
+
+source /var/vcap/packages/common/utils.sh
+
+case $1 in
+
+  start)
+    pid_guard $PIDFILE "DEA"
+
+    mkdir -p $RUN_DIR
+    mkdir -p $LOG_DIR
+    mkdir -p $DATA_DIR
+    mkdir -p $TMPDIR
+    
+    chown -R vcap:vcap $RUN_DIR
+    chown -R vcap:vcap $LOG_DIR
+    chown -R vcap:vcap $DATA_DIR
+    chown -R vcap:vcap $TMPDIR 
+
+    echo $$ > $PIDFILE
+
+    ulimit -c unlimited
+
+	# Squid needs horrible hacky iptables commands around reloads which will require root.
+    cd /var/vcap/packages/proxy-agent
+    export RACK_ENV=production
+    export SETTINGS_FILENAME=$JOB_DIR/config/settings.yml
+    exec chpst -u vcap:vcap bundle exec rackup \
+         >>$LOG_DIR/proxy-agent.stdout.log \
+         2>>$LOG_DIR/proxy-agent.stderr.log
+
+    ;;
+
+  stop)
+    kill_and_wait $PIDFILE 40
+
+    ;;
+
+  *)
+    echo "Usage: proxy-agent_ctl {start|stop}"
+
+    ;;
+
+esac

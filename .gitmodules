@@ -1,0 +1,3 @@
+[submodule "src/proxy-agent"]
+	path = src/proxy-agent
+	url = http://github.com/nimbus-cloud/proxy-agent

@@ -2,6 +2,8 @@
 # Recommended minimum configuration:
 #
 
+auth_param basic program /var/vcap/packages/squid/libexec/basic_ncsa_auth /var/vcap/data/squid/htpasswd
+
 # Example rule allowing access from your local networks.
 # Adapt to list your (internal) IP networks from where browsing
 # should be allowed
@@ -24,33 +26,12 @@ acl Safe_ports port 591		# filemaker
 acl Safe_ports port 777		# multiling http
 acl CONNECT method CONNECT
 
-#
-# Recommended minimum Access Permission configuration:
-#
-# Deny requests to certain unsafe ports
-http_access deny !Safe_ports
+acl http proto http
+acl https proto https
+acl port_80 port 80
+acl port_443 port 443
 
-# Deny CONNECT to other than secure SSL ports
-http_access deny CONNECT !SSL_ports
-
-# Only allow cachemgr access from localhost
-http_access allow localhost manager
-http_access deny manager
-
-# We strongly recommend the following be uncommented to protect innocent
-# web applications running on the proxy server who think the only
-# one who can access services on "localhost" is a local user
-#http_access deny to_localhost
-
-#
-# INSERT YOUR OWN RULE(S) HERE TO ALLOW ACCESS FROM YOUR CLIENTS
-#
-
-# Example rule allowing access from your local networks.
-# Adapt localnet in the ACL section to list your (internal) IP networks
-# from where browsing should be allowed
-http_access allow localnet
-http_access allow localhost
+include /var/vcap/data/squid/conf.d/*.conf
 
 # And finally deny all other access to this proxy
 http_access deny all
