@@ -7,3 +7,12 @@ squid:
   reload_command: "sudo /var/vcap/jobs/squid/bin/squid_reload"
   config_dir: "/var/vcap/data/squid/conf.d"
   htpasswd_file: "/var/vcap/data/squid/htpasswd"
+
+
+static_users:
+<% 
+  str = p("squid.users").to_yaml 
+  str.gsub!(/^---/, '')
+%>
+<%=str%>
+ 

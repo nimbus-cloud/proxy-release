@@ -18,6 +18,12 @@ update:
 
 properties:
   squid:
+    users:
+    - username: test
+      htpasswd: $apr1$hm2buVhj$cSYQ6p92fPkptfTy3PICm.
+      sites:
+      - www.google.com
+      - www.yahoo.com
     servers:
       z1: (( jobs.squid_z1.networks.cf5.static_ips ))
 

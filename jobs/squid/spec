@@ -10,6 +10,6 @@ packages:
   - common
 
 properties:
-  squid.fake_property:
+  squid.users:
     default:
     description:
