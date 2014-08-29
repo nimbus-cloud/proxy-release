@@ -14,3 +14,7 @@ properties:
   squid.servers.z1:
     default:
     description:
+  dante.servers.z1:
+    default:
+    description:
+    

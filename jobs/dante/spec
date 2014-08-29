@@ -1,0 +1,20 @@
+---
+name: dante
+templates:
+  dante_ctl.erb: bin/dante_ctl
+  dante_reload.erb: bin/dante_reload
+  dante.conf.erb: config/dante.conf
+
+packages:
+  - common
+  - libpam0g-dev
+  - dante
+
+properties:
+  dante.users:
+    default:
+    description:
+  networks.apps:
+    default:
+    description:
+      

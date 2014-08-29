@@ -26,6 +26,9 @@ properties:
       - www.yahoo.com
     servers:
       z1: (( jobs.squid_z1.networks.cf5.static_ips ))
+  dante:
+    servers:
+      z1: (( jobs.squid_z1.networks.cf5.static_ips ))
 
 
 jobs:

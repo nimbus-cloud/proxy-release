@@ -1,0 +1,18 @@
+logoutput: /var/vcap/sys/log/dante/dante.log
+#logoutput: syslog
+
+internal: <%= spec.networks.send(properties.networks.apps).ip %> port=1080
+external: <%= spec.networks.send(properties.networks.apps).ip %>
+
+clientmethod: none
+method: none
+
+user.notprivileged: vcap
+
+client pass {
+  from: 0.0.0.0/0 port 1-65535 to: 0.0.0.0/0
+}
+
+pass {
+  from: 0.0.0.0/0 to: 0.0.0.0/0
+}

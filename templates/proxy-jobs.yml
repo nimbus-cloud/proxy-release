@@ -18,6 +18,8 @@ jobs:
         release: proxy
       - name: proxy-agent
         release: proxy
+      - name: dante
+        release: proxy
     instances: 2
     resource_pool: medium_z1
     default_networks:
@@ -38,7 +40,4 @@ jobs:
     properties:
       networks: (( meta.networks.z1 ))
 
-
-
 properties:
-  

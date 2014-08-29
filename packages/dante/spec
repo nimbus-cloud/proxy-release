@@ -1,0 +1,8 @@
+---
+name: dante
+
+dependencies:
+- libpam0g-dev
+
+files:
+- dante/dante-1.4.0.tar.gz

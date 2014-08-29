@@ -1,0 +1,41 @@
+#!/bin/bash
+
+RUN_DIR=/var/vcap/sys/run/dante
+LOG_DIR=/var/vcap/sys/log/dante
+PIDFILE=$RUN_DIR/dante.pid
+DANTE_PACKAGE_DIR=/var/vcap/packages/dante
+DANTE_JOB_DIR=/var/vcap/jobs/dante
+CONFIG_DIR=$DANTE_JOB_DIR/config
+
+source /var/vcap/packages/common/utils.sh
+
+case $1 in
+
+  start)
+
+	pid_guard $PIDFILE "dante"
+
+    mkdir -p $RUN_DIR
+    mkdir -p $LOG_DIR
+    
+    chown -R vcap:vcap $RUN_DIR
+    chown -R vcap:vcap $LOG_DIR
+
+    exec /var/vcap/packages/dante/sbin/sockd \
+         -p $PIDFILE \
+         -f $DANTE_JOB_DIR/config/dante.conf \
+	      >> $LOG_DIR/dante.stdout.log \
+	      2>> $LOG_DIR/dante.stderr.log
+    ;;
+
+  stop)
+    #force kill immediately; drain script should have already run
+    kill_and_wait $PIDFILE 0 1
+
+    ;;
+
+  *)
+    echo "Usage: dante_ctl {start|stop}"
+
+    ;;
+esac

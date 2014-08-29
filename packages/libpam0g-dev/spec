@@ -1,0 +1,8 @@
+---
+name: libpam0g-dev
+
+dependencies:
+
+files:
+- libpam0g-dev/pam_1.1.1.orig.tar.gz
+- libpam0g-dev/pam_1.1.1-2ubuntu2.diff.gz

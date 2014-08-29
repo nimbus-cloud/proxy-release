@@ -1,0 +1,8 @@
+check process dante
+  with pidfile /var/vcap/sys/run/dante/dante.pid
+  start program "/var/vcap/jobs/dante/bin/dante_ctl start"
+  stop program "/var/vcap/jobs/dante/bin/dante_ctl stop"
+  group vcap
+
+
+

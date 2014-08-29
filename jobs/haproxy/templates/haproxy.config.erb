@@ -16,6 +16,11 @@ frontend proxy_http *:3128
         option forwardfor except 127.0.0.1
         option httpclose
         default_backend         proxy_http
+
+frontend proxy_http *:1080
+        option forwardfor except 127.0.0.1
+        option httpclose
+        default_backend         proxy_socks
         
 backend proxy_http
     balance roundrobin
@@ -24,6 +29,15 @@ backend proxy_http
 
     <% p("squid.servers.z1").each_with_index do |ip, index| %>
         server node<%= index %> <%= ip %>:3128 check inter 1000
+    <% end %>
+
+backend proxy_socks
+    balance roundrobin
+    retries                 10
+    <% size = p("dante.servers.z1").size %>
+
+    <% p("dante.servers.z1").each_with_index do |ip, index| %>
+        server node<%= index %> <%= ip %>:1080 check inter 1000
     <% end %>
 
 listen stats 127.0.0.1:8000

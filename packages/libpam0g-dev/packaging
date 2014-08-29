@@ -1,0 +1,17 @@
+# abort script on any command that exits with a non zero value
+set -e -x
+
+tar xvzf libpam0g-dev/pam_1.1.1.orig.tar.gz
+gzip -d libpam0g-dev/pam_1.1.1-2ubuntu2.diff.gz
+
+cp libpam0g-dev/pam_1.1.1-2ubuntu2.diff Linux-PAM-1.1.1
+
+pushd Linux-PAM-1.1.1
+  patch -p1 < pam_1.1.1-2ubuntu2.diff
+  ./configure \
+    --prefix=${BOSH_INSTALL_TARGET}
+  make
+  make install
+  ln -s ${BOSH_INSTALL_TARGET}/include ${BOSH_INSTALL_TARGET}/security 
+popd
+
