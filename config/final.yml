@@ -1,5 +1,6 @@
 ---
 blobstore:  
-  provider: local
+  provider: s3
   options:
-    blobstore_path: /tmp/blobs
+    bucket_name: proxy-release.s3-website-eu-west-1.amazonaws.com
+

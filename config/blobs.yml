@@ -1,1 +1,51 @@
---- {}
+---
+dante/dante-1.4.0.tar.gz:
+  object_id: 9238b493-0702-42e0-b273-9e48a10269a7
+  sha: !binary |-
+    M2JiNjk3OGUzNjAwZjUxMTdjNTRhYjVmMmI3MzA3ZGRkZmQ5YmNlOA==
+  size: 1253458
+haproxy/haproxy-1.5-dev19.tar.gz:
+  object_id: e8d10aad-3dcc-4549-b8bf-af5046faf28a
+  sha: !binary |-
+    NWMxNjY4NmM1MTZkYmVhYWI4YWRhNmMxN2MyNWU5NjI5YWI0ZjdkMw==
+  size: 1143258
+haproxy/pcre-8.33.tar.gz:
+  object_id: 17cff6b7-e839-4911-8894-ba40b3b5c864
+  sha: !binary |-
+    YmNlYWZiNTM1NTMyMTlkYWQyNTkzYmI4YWYwNmRhNGQwN2ZkMzgyOA==
+  size: 1889401
+libpam0g-dev/pam_1.1.1-2ubuntu2.diff.gz:
+  object_id: a47017ae-9553-4050-8f56-5b35933e88cf
+  sha: !binary |-
+    YjFmOTg4ZWEzMDY0YmRhN2MxYWU0YzMyMzdhMmUyNDI0YjMwY2YzMQ==
+  size: 235859
+libpam0g-dev/pam_1.1.1.orig.tar.gz:
+  object_id: 04e722c2-bcd6-4b62-9f85-b69fd982c35e
+  sha: !binary |-
+    MDZjYmNkMGM4ZTIwZTE1Njg3OGQ4Mzk5ZGFmNGU2MzJjOGI5Yzc5Yg==
+  size: 1799415
+ruby/bundler-1.2.1.gem:
+  object_id: ef836491-50fc-4a05-83ca-c5dc4bb75eb8
+  sha: !binary |-
+    MGNiZTZhZDdhNDFmMDY0ZDZjMTFjMTA1ODQ2NWZmZmIxYmQ1ODA2OQ==
+  size: 226816
+ruby/ruby-1.9.3-p545.tar.gz:
+  object_id: 9ac3b4d7-75e3-49fe-822f-81e49351bb79
+  sha: !binary |-
+    MDM0NTUzNjQ3NDA5MTRlOGQyZGZkNjQyMWY2ODFiM2ZiNjhhNDMxMw==
+  size: 12582277
+ruby/rubygems-1.8.24.tgz:
+  object_id: 58a8c8a0-adea-4c9c-bdb2-800643511299
+  sha: !binary |-
+    MzBmMjcwNDdlNzRmNzk0MzExNzczNmEwZDNlMjI0OTk0ZmVlMDkwNQ==
+  size: 380101
+ruby/yaml-0.1.6.tar.gz:
+  object_id: ed49c94b-89cf-41a9-b6cc-b74e909ba215
+  sha: !binary |-
+    ZjNkNDA0ZTExYmVjM2M0ZWZjZGRmZDE0YzQyZDQ2ZjFhYWJlMGI1ZA==
+  size: 503012
+squid/squid-3.4.6.tar.gz:
+  object_id: 5a89b29c-2015-4a16-abf7-12f3a476fc08
+  sha: !binary |-
+    NGJjMjk1N2QyNTY1OTRmNmUyYWEyMjY3NjU4Zjg4ZGIxODYzYmM0YQ==
+  size: 4612068
