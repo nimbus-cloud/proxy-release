@@ -24,6 +24,7 @@ case $1 in
     chown -R vcap:vcap /var/vcap/sys/squid-cache
     
     mkdir -p /var/vcap/data/squid/conf.d
+    touch /var/vcap/data/squid/conf.d/fake.conf
     touch /var/vcap/data/squid/htpasswd
     chown -R vcap:vcap /var/vcap/data/squid
 
