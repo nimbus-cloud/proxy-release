@@ -39,8 +39,12 @@ http_access deny all
 # Squid normally listens to port 3128
 http_port 3128
 
+workers <%= p('squid.workers') %>
+
+cache_mem 1024 MB
+
 # Uncomment and adjust the following to add a disk cache directory.
-cache_dir ufs /var/vcap/sys/squid-cache/squid 100 16 256
+# cache_dir ufs /var/vcap/sys/squid-cache/squid 100 16 256
 # Leave coredumps in the first cache dir
 coredump_dir /var/vcap/sys/squid-cache/squid
 
