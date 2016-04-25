@@ -44,8 +44,3 @@ ruby/yaml-0.1.6.tar.gz:
   sha: !binary |-
     ZjNkNDA0ZTExYmVjM2M0ZWZjZGRmZDE0YzQyZDQ2ZjFhYWJlMGI1ZA==
   size: 503012
-squid/squid-3.4.6.tar.gz:
-  object_id: 5a89b29c-2015-4a16-abf7-12f3a476fc08
-  sha: !binary |-
-    NGJjMjk1N2QyNTY1OTRmNmUyYWEyMjY3NjU4Zjg4ZGIxODYzYmM0YQ==
-  size: 4612068

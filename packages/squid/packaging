@@ -3,8 +3,8 @@ set -e -x
 
 echo "Extracting squid...."
 
-tar xvzf squid/squid-3.4.6.tar.gz
-pushd squid-3.4.6
+tar xvzf squid-3.5.17.tar.gz
+pushd squid-3.5.17
   ./configure \
     --prefix=${BOSH_INSTALL_TARGET}
   make
