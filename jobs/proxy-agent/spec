@@ -19,4 +19,6 @@ properties:
   proxy_agent.broker_password:
     description: "cf-proxy-broker password"
     default: "password"
-    
+  squid.users:
+    default:
+    description:
