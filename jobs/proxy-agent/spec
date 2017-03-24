@@ -10,6 +10,9 @@ packages:
 - ruby
 
 properties:
+  proxy_agent.managed_by_broker:
+    description: "Whether or not to fetch the config from the broker. In standalone mode (managed_by_broker: false) initial config is empty."
+    default: true
   proxy_agent.broker_end_point:
     description: "cf-proxy-broker endpoint"
     default: "http://cf-proxy-broker.10.244.0.34.xip.io"

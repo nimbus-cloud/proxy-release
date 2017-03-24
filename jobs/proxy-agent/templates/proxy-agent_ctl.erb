@@ -30,11 +30,11 @@ case $1 in
 
     ulimit -c unlimited
 
-	# Squid needs horrible hacky iptables commands around reloads which will require root.
+    # Squid needs horrible hacky iptables commands around reloads which will require root.
     cd /var/vcap/packages/proxy-agent
     export RACK_ENV=production
     export SETTINGS_FILENAME=$JOB_DIR/config/settings.yml
-    exec chpst -u vcap:vcap bundle exec rackup \
+    exec chpst -u vcap:vcap bundle exec rackup <% unless p('proxy_agent.managed_by_broker') %>--host 127.0.0.1<% end %> \
          >>$LOG_DIR/proxy-agent.stdout.log \
          2>>$LOG_DIR/proxy-agent.stderr.log
 
