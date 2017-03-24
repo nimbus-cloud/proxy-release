@@ -1,12 +1,13 @@
-# abort script on any command that exits with a non zero value
-set -e -x
+#!/bin/bash
 
+set -eux
+
+# Extract and compile squid package
 echo "Extracting squid...."
-
-tar xvzf squid-3.5.17.tar.gz
-pushd squid-3.5.17
-  ./configure \
-    --prefix=${BOSH_INSTALL_TARGET}
+cd ${BOSH_COMPILE_TARGET}/squid
+tar xvzf squid-3.5.24.tar.gz
+pushd squid-3.5.24
+  ./configure --prefix=${BOSH_INSTALL_TARGET}
   make
   make install
 popd
