@@ -24,23 +24,15 @@ libpam0g-dev/pam_1.1.1.orig.tar.gz:
   sha: !binary |-
     MDZjYmNkMGM4ZTIwZTE1Njg3OGQ4Mzk5ZGFmNGU2MzJjOGI5Yzc5Yg==
   size: 1799415
-ruby/bundler-1.2.1.gem:
-  object_id: ef836491-50fc-4a05-83ca-c5dc4bb75eb8
-  sha: !binary |-
-    MGNiZTZhZDdhNDFmMDY0ZDZjMTFjMTA1ODQ2NWZmZmIxYmQ1ODA2OQ==
-  size: 226816
-ruby/ruby-1.9.3-p545.tar.gz:
-  object_id: 9ac3b4d7-75e3-49fe-822f-81e49351bb79
-  sha: !binary |-
-    MDM0NTUzNjQ3NDA5MTRlOGQyZGZkNjQyMWY2ODFiM2ZiNjhhNDMxMw==
-  size: 12582277
-ruby/rubygems-1.8.24.tgz:
-  object_id: 58a8c8a0-adea-4c9c-bdb2-800643511299
-  sha: !binary |-
-    MzBmMjcwNDdlNzRmNzk0MzExNzczNmEwZDNlMjI0OTk0ZmVlMDkwNQ==
-  size: 380101
-ruby/yaml-0.1.6.tar.gz:
-  object_id: ed49c94b-89cf-41a9-b6cc-b74e909ba215
-  sha: !binary |-
-    ZjNkNDA0ZTExYmVjM2M0ZWZjZGRmZDE0YzQyZDQ2ZjFhYWJlMGI1ZA==
-  size: 503012
+ruby-2.3/bundler-1.13.6.gem:
+  object_id: bad05dd0-86e8-4a45-8a46-70880a1c6dd8
+  sha: c4b33f5e0a6ad4a363d2820260f10454197cceff
+  size: 307200
+ruby-2.3/ruby-2.3.3.tar.gz:
+  object_id: 218c9c26-c0b4-4115-84d1-9f0283d6d633
+  sha: 1014ee699071aa2ddd501907d18cbe15399c997d
+  size: 17813577
+ruby-2.3/rubygems-2.6.8.tgz:
+  object_id: 2393318f-83ea-4e9c-9d18-83d82ee34d94
+  sha: d253fd1caca6103a9e2a69127ac158a3745fbb44
+  size: 754300
