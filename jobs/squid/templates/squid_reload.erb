@@ -2,7 +2,7 @@
 
 SQUID_JOB_DIR=/var/vcap/jobs/squid
 
-iptables -I INPUT -p tcp --dport 3128 --syn -j DROP
+# iptables -I INPUT -p tcp --dport 3128 --syn -j DROP
 chpst -u vcap:vcap /var/vcap/packages/squid/sbin/squid -f $SQUID_JOB_DIR/config/squid.conf -k reconfigure
-iptables -D INPUT -p tcp --dport 3128 --syn -j DROP
+# iptables -D INPUT -p tcp --dport 3128 --syn -j DROP
 
