@@ -10,9 +10,6 @@ packages:
   - common
 
 properties:
-  squid.users:
-    default:
-    description:
   squid.workers:
     default: 2
     description: 'Number of squid workers'
