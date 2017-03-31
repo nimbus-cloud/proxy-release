@@ -23,5 +23,5 @@ properties:
     description: "cf-proxy-broker password"
     default: "password"
   squid.users:
-    default:
-    description:
+    default: []
+    description: "Pre-configured squid accounts"
