@@ -1,0 +1,7 @@
+---
+applications:
+- name: proxy-all-ok
+  buildpack: staticfile_buildpack
+  memory: 64M
+  instances: 2
+  path: .
