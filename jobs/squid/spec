@@ -4,6 +4,7 @@ templates:
   squid_ctl.erb: bin/squid_ctl
   squid_reload.erb: bin/squid_reload
   squid.conf.erb: config/squid.conf
+  http-check.sh.erb: bin/http-check.sh
 
 packages:
   - squid
@@ -13,3 +14,9 @@ properties:
   squid.workers:
     default: 2
     description: 'Number of squid workers'
+  squid.http_check.username:
+    description: 'Username for HTTP proxy check'
+  squid.http_check.password:
+    description: 'Password for HTTP proxy check'
+  squid.http_check.test_endpoint:
+    description: 'Endpoint for HTTP proxy check'
