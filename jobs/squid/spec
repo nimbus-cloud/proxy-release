@@ -5,6 +5,8 @@ templates:
   squid_reload.erb: bin/squid_reload
   squid.conf.erb: config/squid.conf
   http-check.sh.erb: bin/http-check.sh
+  http-check-reload.sh.erb: bin/http-check-reload.sh
+
 
 packages:
   - squid

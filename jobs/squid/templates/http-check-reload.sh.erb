@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# stop monit
+/var/vcap/bosh/bin/monit monit stop -g vcap
+
+# wait for processes to stop
+sleep 60
+
+# force kill squid and proxy-agent process if still running
+pkill squid
+ps -ef | grep puma | grep -v grep | awk '{print $2}' | xargs kill -9       
+
+# wait for processes to kill
+sleep 10 
+
+# start monit again
+/var/vcap/bosh/bin/monit start -g vcap
