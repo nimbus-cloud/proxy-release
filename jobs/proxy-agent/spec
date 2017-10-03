@@ -3,6 +3,7 @@ name: proxy-agent
 templates:
   settings.yml.erb: config/settings.yml
   proxy-agent_ctl.erb: bin/proxy-agent_ctl
+  drain-proxy.erb: bin/drain
 
 packages:
 - common

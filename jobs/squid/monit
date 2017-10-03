@@ -6,5 +6,5 @@ check process squid
 
 
 check program http-check with path "/var/vcap/jobs/squid/bin/http-check.sh"
-  if status != 0 for 6 cycles then exec "/var/vcap/bosh/bin/monit restart all"
+  if status != 0 for 12 cycles then exec "/var/vcap/jobs/squid/bin/http-check-reload.sh"
   group vcap
