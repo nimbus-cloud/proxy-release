@@ -4,4 +4,4 @@ name: squid
 dependencies:
 
 files:
-- squid/squid-3.5.24.tar.gz
+- squid/squid-4.5.tar.gz

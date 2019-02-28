@@ -1,38 +1,24 @@
----
-dante/dante-1.4.0.tar.gz:
-  object_id: 9238b493-0702-42e0-b273-9e48a10269a7
-  sha: !binary |-
-    M2JiNjk3OGUzNjAwZjUxMTdjNTRhYjVmMmI3MzA3ZGRkZmQ5YmNlOA==
-  size: 1253458
 haproxy/haproxy-1.5-dev19.tar.gz:
-  object_id: e8d10aad-3dcc-4549-b8bf-af5046faf28a
-  sha: !binary |-
-    NWMxNjY4NmM1MTZkYmVhYWI4YWRhNmMxN2MyNWU5NjI5YWI0ZjdkMw==
   size: 1143258
+  sha: 5c16686c516dbeaab8ada6c17c25e9629ab4f7d3
+haproxy/haproxy-1.9.2.tar.gz:
+  size: 2350356
+  sha: caacec7cb077c5376fa65dea8294bf3ac7790af2
 haproxy/pcre-8.33.tar.gz:
-  object_id: 17cff6b7-e839-4911-8894-ba40b3b5c864
-  sha: !binary |-
-    YmNlYWZiNTM1NTMyMTlkYWQyNTkzYmI4YWYwNmRhNGQwN2ZkMzgyOA==
   size: 1889401
-libpam0g-dev/pam_1.1.1-2ubuntu2.diff.gz:
-  object_id: a47017ae-9553-4050-8f56-5b35933e88cf
-  sha: !binary |-
-    YjFmOTg4ZWEzMDY0YmRhN2MxYWU0YzMyMzdhMmUyNDI0YjMwY2YzMQ==
-  size: 235859
-libpam0g-dev/pam_1.1.1.orig.tar.gz:
-  object_id: 04e722c2-bcd6-4b62-9f85-b69fd982c35e
-  sha: !binary |-
-    MDZjYmNkMGM4ZTIwZTE1Njg3OGQ4Mzk5ZGFmNGU2MzJjOGI5Yzc5Yg==
-  size: 1799415
+  sha: bceafb53553219dad2593bb8af06da4d07fd3828
 ruby-2.3/bundler-1.13.6.gem:
+  size: 307200
   object_id: bad05dd0-86e8-4a45-8a46-70880a1c6dd8
   sha: c4b33f5e0a6ad4a363d2820260f10454197cceff
-  size: 307200
 ruby-2.3/ruby-2.3.3.tar.gz:
+  size: 17813577
   object_id: 218c9c26-c0b4-4115-84d1-9f0283d6d633
   sha: 1014ee699071aa2ddd501907d18cbe15399c997d
-  size: 17813577
 ruby-2.3/rubygems-2.6.8.tgz:
+  size: 754300
   object_id: 2393318f-83ea-4e9c-9d18-83d82ee34d94
   sha: d253fd1caca6103a9e2a69127ac158a3745fbb44
-  size: 754300
+squid/squid-4.5.tar.gz:
+  size: 5245175
+  sha: 277dd578b99a0042edfcb0aaf7d14339e8bf62fe
