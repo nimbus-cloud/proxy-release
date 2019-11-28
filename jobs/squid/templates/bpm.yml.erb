@@ -1,0 +1,21 @@
+processes:
+  - name: squid
+    executable: /var/vcap/packages/squid/sbin/squid
+    args:
+    - -f
+    - /var/vcap/jobs/squid/config/squid.conf
+    persistent_disk: true
+    ephemeral_disk: true
+    unsafe:
+      unrestricted_volumes:
+      - path: /var/vcap/sys/run/squid
+        mount_only: true
+        writeable: true
+      - path: /var/vcap/data/squid
+        mount_only: true
+        writeable: true
+      - path: /var/vcap/sys/squid-cache
+        mount_only: true
+        writeable: true
+    hooks:
+      pre_start: /var/vcap/jobs/squid/bin/create-squid-directories.sh

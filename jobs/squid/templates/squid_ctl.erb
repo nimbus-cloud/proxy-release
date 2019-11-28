@@ -36,7 +36,7 @@ case $1 in
 
     if [[ ! -d /var/vcap/sys/squid-cache/squid/00 ]]; then
       chpst -u vcap:vcap /var/vcap/packages/squid/sbin/squid \
-         -f $SQUID_JOB_DIR/config/squid.conf \
+         -f /var/vcap/jobs/squid/config/squid.conf \
          -z \
 	      >> $LOG_DIR/squid.stdout.log \
 	      2>> $LOG_DIR/squid.stderr.log

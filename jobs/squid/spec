@@ -6,6 +6,8 @@ templates:
   squid.conf.erb: config/squid.conf
   http-check.sh.erb: bin/http-check.sh
   http-check-reload.sh.erb: bin/http-check-reload.sh
+  create-squid-directories.sh.erb: bin/create-squid-directories.sh
+  bpm.yml.erb: config/bpm.yml
 
 
 packages:

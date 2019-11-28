@@ -1,10 +1,5 @@
 check process squid
-  with pidfile /var/vcap/sys/run/squid/squid.pid
-  start program "/var/vcap/jobs/squid/bin/squid_ctl start"
-  stop program "/var/vcap/jobs/squid/bin/squid_ctl stop"
-  group vcap
-
-
-check program http-check with path "/var/vcap/jobs/squid/bin/http-check.sh"
-  if status != 0 for 12 cycles then exec "/var/vcap/jobs/squid/bin/http-check-reload.sh"
+  with pidfile /var/vcap/data/squid/squid.pid
+  start program "/var/vcap/jobs/bpm/bin/bpm start squid"
+  stop program "/var/vcap/jobs/bpm/bin/bpm stop squid"
   group vcap

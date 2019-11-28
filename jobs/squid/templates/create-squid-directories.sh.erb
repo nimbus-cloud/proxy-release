@@ -1,0 +1,21 @@
+#!/bin/bash
+
+RUN_DIR=/var/vcap/sys/run/squid
+LOG_DIR=/var/vcap/sys/log/squid
+PIDFILE=/var/vcap/sys/run/bpm/squid/squid.pid
+SQUID_PACKAGE_DIR=/var/vcap/packages/squid
+SQUID_JOB_DIR=/var/vcap/jobs/squid
+CONFIG_DIR=$SQUID_JOB_DIR/config
+
+source /var/vcap/packages/common/utils.sh
+
+mkdir -p $RUN_DIR
+mkdir -p $LOG_DIR
+mkdir -p /var/vcap/sys/squid-cache/squid
+
+mkdir -p /var/vcap/data/squid/conf.d
+touch /var/vcap/data/squid/conf.d/fake.conf
+touch /var/vcap/data/squid/htpasswd
+
+chown -R vcap:vcap /var/vcap/data/squid
+chown -R vcap:vcap /var/vcap/sys/run/bpm
