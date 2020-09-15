@@ -22,3 +22,11 @@ properties:
     description: 'Password for HTTP proxy check'
   squid.http_check.test_endpoint:
     description: 'Endpoint for HTTP proxy check'
+  squid.conf:
+    default: |
+      connect_timeout 60 seconds
+      connect_retries 0
+      dns_timeout 30 seconds
+      dns_v4_first off
+      dns_retransmit_interval 5 seconds
+    description: 'Additional configuration for Squid.'
