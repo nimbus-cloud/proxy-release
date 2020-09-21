@@ -41,6 +41,9 @@ http_port 3128
 
 workers <%= p('squid.workers') %>
 
+# Additional Squid configuration
+<%= p('squid.config') %>
+
 cache_mem 1024 MB
 
 # Uncomment and adjust the following to add a disk cache directory.
