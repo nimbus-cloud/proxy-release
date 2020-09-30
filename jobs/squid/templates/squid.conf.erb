@@ -41,8 +41,8 @@ http_port 3128
 
 workers <%= p('squid.workers') %>
 
-# Additional Squid configuration
-<%= p('squid.config') %>
+# Additional custom ad-hoc squid configuration
+<%= p('squid.custom') %>
 
 cache_mem 1024 MB
 

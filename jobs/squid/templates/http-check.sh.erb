@@ -7,7 +7,7 @@ PROXY_PASS="<%= p('squid.http_check.password') %>"
 PROXY_URL="http://$PROXY_USER:$PROXY_PASS@127.0.0.1:3128"
 TEST_ENDPOINT="<%= p('squid.http_check.test_endpoint') %>"
 
-RESPONSE=$(curl -x $PROXY_URL $TEST_ENDPOINT)
+RESPONSE=$(curl -sS --retry 3 -x $PROXY_URL $TEST_ENDPOINT)
 
 if [ "$RESPONSE" = "[All_OK]" ]
 then
