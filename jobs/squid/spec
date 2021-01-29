@@ -30,3 +30,6 @@ properties:
       dns_v4_first off
       dns_retransmit_interval 5 seconds
     description: 'Additional configuration for Squid.'
+  squid.acl:
+    default: |
+      
