@@ -26,6 +26,7 @@ properties:
     default: |
       connect_timeout 60 seconds
       connect_retries 0
+      max_filedesc 4096
       dns_timeout 30 seconds
       dns_v4_first off
       dns_retransmit_interval 5 seconds
